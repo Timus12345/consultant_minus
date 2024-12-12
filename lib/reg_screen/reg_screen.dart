@@ -147,7 +147,7 @@ class _reg_screenState extends State<reg_screen> {
                   InkWell(
                     onTap: ()
                     {
-                      Navigator.pushReplacementNamed(context, '/reg');
+                      Navigator.pushReplacementNamed(context, '/');
                     },
                     child: Text("Войти",
                         style: AppShrifts.ralewayMedium16.copyWith(color: AppColors.black)
@@ -156,7 +156,7 @@ class _reg_screenState extends State<reg_screen> {
                 ],
               )
           ),
-          Padding(padding: const EdgeInsets.only(left: 10, right: 10, top: 120),
+          Padding(padding: const EdgeInsets.only(left: 10, right: 10, top: 170),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
