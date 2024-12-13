@@ -94,7 +94,7 @@ class _sign_inState extends State<sign_in> {
           ),
           Padding(padding: const EdgeInsets.only(left: 215, right: 0, top: 1),
               child: TextButton(onPressed: (){
-                Navigator.pushReplacementNamed(context, '/forgot');
+                Navigator.pushReplacementNamed(context, '/recovery');
               },
                   child: Text('Восстановить пароль', style: AppShrifts.poppinsRegular12.copyWith(color: AppColors.black),))
           ),
