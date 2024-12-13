@@ -1,3 +1,4 @@
+import 'package:consult_minus/navigation_menu/BottomNavBar.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(Home());
@@ -29,6 +30,7 @@ class _home_screenState extends State<home_screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: appBar(context),
       appBar: AppBar(
         title: Image.asset('logobar.png', height: 40), // Логотип приложения
         centerTitle: true,
@@ -125,6 +127,7 @@ class ConsultantDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: appBar(context),
       appBar: AppBar(
         title: Text(consultant.name),
         backgroundColor: Colors.white,
@@ -161,7 +164,6 @@ class ConsultantDetailScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Переход к отзывам
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -185,7 +187,6 @@ class ReviewsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Пример отзывов для консультанта
     List<String> reviews = [
       'Отличный специалист, помог мне с налоговыми вопросами.',
       'Очень внимательная и профессиональная.',
@@ -193,6 +194,7 @@ class ReviewsScreen extends StatelessWidget {
     ];
 
     return Scaffold(
+      bottomNavigationBar: appBar(context),
       appBar: AppBar(
         title: Text('Отзывы о ${consultant.name}'),
         backgroundColor: Colors.white,
