@@ -19,7 +19,7 @@ Widget appBar(context) {
         ),
       ),
       Positioned(
-        left: 160,
+        left: 170,
         child: IconButton(
           onPressed: () {
             Navigator.pushReplacementNamed(context, '/favour');
