@@ -22,7 +22,6 @@ class _home_screenState extends State<home_screen> {
     Consultant(name: 'Алексей Волков', rating: 4.9, description: 'Юрист с опытом в области семейного права', isFavorite: false),
     Consultant(name: 'Андрей Ездаков', rating: 4.8, description: 'Специалист по налоговому праву', isFavorite: false),
     Consultant(name: 'Денис Агеров', rating: 4.2, description: 'Юрист по корпоративным делам', isFavorite: false),
-    // Добавьте сюда других консультантов
   ];
 
   String searchQuery = "";
@@ -32,7 +31,7 @@ class _home_screenState extends State<home_screen> {
     return Scaffold(
       bottomNavigationBar: appBar(context),
       appBar: AppBar(
-        title: Image.asset('logobar.png', height: 40), // Логотип приложения
+        title: Image.asset('logobar.png', height: 40),
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
@@ -48,13 +47,13 @@ class _home_screenState extends State<home_screen> {
                   searchQuery = value;
                 });
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Поиск консультантов',
                 border: OutlineInputBorder(),
                 prefixIcon: Icon(Icons.search),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: consultants
@@ -67,11 +66,11 @@ class _home_screenState extends State<home_screen> {
                       .toList()[index];
 
                   return ListTile(
-                    leading: CircleAvatar(child: Icon(Icons.person)),
+                    leading: const CircleAvatar(child: Icon(Icons.person)),
                     title: Text(consultant.name),
                     subtitle: Row(
                       children: [
-                        Icon(Icons.star, color: Colors.amber, size: 16),
+                        const Icon(Icons.star, color: Colors.amber, size: 16),
                         Text('${consultant.rating}'),
                       ],
                     ),
@@ -138,30 +137,30 @@ class ConsultantDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               radius: 50,
               child: Icon(Icons.person, size: 50),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               consultant.name,
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: [
-                Icon(Icons.star, color: Colors.amber, size: 20),
-                Text('${consultant.rating}', style: TextStyle(fontSize: 16)),
+                const Icon(Icons.star, color: Colors.amber, size: 20),
+                Text('${consultant.rating}', style: const TextStyle(fontSize: 16)),
               ],
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Описание:',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
-            Text(consultant.description, style: TextStyle(fontSize: 16)),
-            SizedBox(height: 20),
+            const SizedBox(height: 10),
+            Text(consultant.description, style: const TextStyle(fontSize: 16)),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -171,7 +170,7 @@ class ConsultantDetailScreen extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('Посмотреть отзывы'),
+              child: const Text('Посмотреть отзывы'),
             ),
           ],
         ),
@@ -205,7 +204,7 @@ class ReviewsScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(reviews[index]),
-            leading: Icon(Icons.comment),
+            leading: const Icon(Icons.comment),
           );
         },
       ),

@@ -13,6 +13,7 @@ Widget appBar(context) {
         left: 60,
         child: IconButton(
           onPressed: () {
+
             Navigator.pushReplacementNamed(context, '/home');
           },
           icon: Image.asset('home.png'),

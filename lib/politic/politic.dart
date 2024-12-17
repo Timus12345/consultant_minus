@@ -43,7 +43,6 @@ class _politic_screenState extends State<politic_screen> {
               'Передача данных. Ваши данные могут передаваться третьим лицам, только если это необходимо для предоставления услуг.',
               style: AppShrifts.ralewayMedium16.copyWith(color: AppColors.black)
             ),
-            // Продолжайте добавлять текст по мере необходимости
             const SizedBox(height: 20),
             Text(
               'Использование данных. Мы можем использовать ваши данные для улучшения нашего приложения.',

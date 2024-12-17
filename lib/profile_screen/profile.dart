@@ -1,4 +1,5 @@
 import 'package:consult_minus/themes/themes.dart';
+import 'package:consult_minus/navigation_menu/BottomNavBar.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -21,12 +22,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text("Данные сохранены"),
-        content: Text("Ваш профиль обновлен!"),
+        backgroundColor: AppColors.white,
+        title: const Text("Данные сохранены"),
+        content: const Text("Ваш профиль обновлен!"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
+            child: Text('OK', style: AppShrifts.ralewayMedium16.copyWith(color: AppColors.black),),
           ),
         ],
       ),
@@ -40,6 +42,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: appBar(context),
+      appBar: AppBar(
+        title: const Text('Ваш профиль'),
+        backgroundColor: Colors.white,
+      ),
       backgroundColor: AppColors.white,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -47,42 +54,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 0, right: 0),
-                    child: IconButton(onPressed: ()
-                    {
-                      Navigator.pushReplacementNamed(context, '/home');
-                    },
-                        icon: Image.asset('assets/strelka.png', width: 50, height: 50,)),
-                  ),
-                  Text('Профиль', style: AppShrifts.poppinsSemiBold24.copyWith(color: AppColors.black),)
-                ],
-              ),
               _buildInfoField("Логин", _username),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildInfoField("Почта", _email),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               _buildEditableField("О себе", _aboutController),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               ElevatedButton(
                 onPressed: _saveProfile,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                 ),
-                child: Text(
+                child: const Text(
                   "Сохранить изменения",
                   style: TextStyle(color: Colors.white),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _logout,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.black,
                 ),
-                child: Text(
+                child: const Text(
                   "Выйти из аккаунта",
                   style: TextStyle(color: Colors.white),
                 ),
@@ -100,12 +94,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Container(
           width: double.infinity,
-          padding: EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(12.0),
           decoration: BoxDecoration(
             color: Colors.grey[200],
             borderRadius: BorderRadius.circular(4.0),
@@ -113,7 +107,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           child: Text(
             value,
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
         ),
       ],
@@ -126,14 +120,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         TextField(
           controller: controller,
           maxLines: 3,
           decoration: InputDecoration(
-            border: OutlineInputBorder(),
+            border: const OutlineInputBorder(),
             hintText: "Введите Информацию $label",
           ),
         ),
