@@ -20,7 +20,7 @@ class _sign_inState extends State<sign_in> {
     if (_formKey.currentState!.validate()) {
       try {
         // Call the signIn function from SupabaseService
-        await SupabaseService.signIn(
+        await ServiceDatabase.signIn(
           _emailController.text.trim(),
           _passwordController.text.trim(),
         );

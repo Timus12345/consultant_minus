@@ -1,6 +1,8 @@
 import 'package:consult_minus/themes/themes.dart';
 import 'package:consult_minus/navigation_menu/BottomNavBar.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:consult_minus/services/supabase_service.dart'; // Import SupabaseService
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -8,13 +10,25 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final String _username = "user123";
-  final String _email = "user@example.com";
+  late String _username = '';
+  late String _email = '';
   final TextEditingController _aboutController = TextEditingController();
+
+  Future<void> _loadUserData() async { // Объявляем функцию для загрузки данных
+    try {
+      Map<String, dynamic> user = await ServiceDatabase.getUser(); // Ожидание результата
+
+      _username = user['name'];
+      _email = user['email'];
+    } catch (e) {
+      print("Ошибка получения пользователя: $e");
+    }
+  }
 
   @override
   void initState() {
     super.initState();
+    _loadUserData();
     _aboutController.text = "Я студент - ем паштет!";
   }
 

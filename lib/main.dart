@@ -11,7 +11,7 @@ import 'package:consult_minus/services/supabase_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SupabaseService.initialize();
+  await ServiceDatabase.initialize();
 
   runApp(MaterialApp(
     initialRoute: '/',

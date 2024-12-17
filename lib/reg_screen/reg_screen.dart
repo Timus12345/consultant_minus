@@ -25,18 +25,13 @@ class _reg_screenState extends State<reg_screen> {
         errorMessage = ''; // Сброс ошибки перед новым запросом
       });
 
-      try {
-        await SupabaseService.signUp(
+        ServiceDatabase.signUp(
           _emailController.text.trim(),
+          _nameController.text.trim(),
           _passwordController.text.trim(),
         );
         // Можно добавить код для сохранения имени пользователя в профиль
         Navigator.pushReplacementNamed(context, '/home');  // Переход на главную страницу
-      } catch (e) {
-        setState(() {
-          errorMessage = 'Ошибка регистрации: $e';  // Отображение ошибки
-        });
-      }
     }
   }
 
