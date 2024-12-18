@@ -48,14 +48,14 @@ class _reg_screenState extends State<reg_screen> {
               padding: EdgeInsets.only(right: 290, top: 100),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 0, right: 0, top: 10),
+              padding: const EdgeInsets.only(left: 30, right: 0, top: 10),
               child: Text(
                 'Создать аккаунт',
                 style: AppShrifts.ralewayBold32.copyWith(color: AppColors.black),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
+              padding: const EdgeInsets.only(left: 80, right: 30, top: 10),
               child: Text(
                 'Добро пожаловать!',
                 textAlign: TextAlign.center,
@@ -231,7 +231,14 @@ class _reg_screenState extends State<reg_screen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 0, right: 0, top: 140),
+              padding: const EdgeInsets.only(left: 10, top: 50),
+              child: Text(
+                "Не забудьте подвтердить свою почту!",
+                style: AppShrifts.ralewayMedium16.copyWith(color: AppColors.darkGrey),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 0, right: 0, top: 90),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -243,7 +250,7 @@ class _reg_screenState extends State<reg_screen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(),
+              padding: const EdgeInsets.only(left: 70),
               child: InkWell(
                 onTap: () {
                   Navigator.pushReplacementNamed(context, '/politic');
