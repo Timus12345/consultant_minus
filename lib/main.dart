@@ -6,6 +6,8 @@ import 'package:consult_minus/reg_screen/reg_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:consult_minus/sign/sign.dart';
 import 'package:consult_minus/services/supabase_service.dart';
+import 'package:consult_minus/verify/verify.dart';
+import 'package:consult_minus/forgot_pass/forgot_pass.dart';
 
 
 
@@ -22,6 +24,8 @@ void main() async {
       '/home': (context) => home_screen(),
       '/profile': (context) => ProfileScreen(),
       '/favour': (context) => favorite_screen(),
+      '/forgot': (context) => forgot_pass(),
+      '/verify': (context) => verification_screen()
     },
   ));
 }

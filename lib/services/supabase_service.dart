@@ -54,12 +54,38 @@ class ServiceDatabase {
   }
 
   static Future<Map<String, dynamic>> getUser() async {
-    var section = supabase.auth.currentSession;
-    var user = supabase.auth.getUser();
-    print(user);
+    supabase.auth.signInWithOtp(email: "asdasdasdd");
+    supabase.auth.verifyOTP(type: OtpType.email, email: "asdasdasdd");
     return {
-      'name': 'user?.email', // Использовать строковые ключи
-      'email': 'user?.email', // Сделать email строкой для согласованности
+      'name': supabase.auth.currentSession?.user.userMetadata?['name'], //'user?.email',
+      'email': supabase.auth.currentSession?.user.email, //'user?.email',
     };
   }
+  static Future<void> i() async {
+    await Supabase.initialize(
+      url: _supabaseUrl,
+      anonKey: _supabaseKey,
+    );
+
+    supabase = SupabaseClient(
+      _supabaseUrl,
+      _supabaseKey,
+      authOptions: const AuthClientOptions(authFlowType: AuthFlowType.implicit),
+    );
+  }
+
+  static Future<void> sendOtp(String email) async {
+    final response = await supabase.auth.signInWithOtp(email: email);
+  }
+
+  static Future<bool> verifyOtp(String otp) async {
+    final response = await supabase.auth.verifyOTP(
+      type: OtpType.email,
+      email: 'user-email@example.com',  // Пример, сюда нужно передавать email пользователя
+      token: otp,
+    );
+
+    return true;  // Если ошибок нет, OTP проверен успешно
+  }
 }
+

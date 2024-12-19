@@ -183,6 +183,27 @@ class _sign_inState extends State<sign_in> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Забыли пароль? ",
+                    style: AppShrifts.ralewayMedium16.copyWith(color: AppColors.darkGrey),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/forgot');
+                    },
+                    child: Text(
+                      "Восстановить",
+                      style: AppShrifts.ralewayMedium16.copyWith(color: AppColors.black),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

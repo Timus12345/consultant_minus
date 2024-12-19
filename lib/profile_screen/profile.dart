@@ -18,8 +18,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
     try {
       Map<String, dynamic> user = await ServiceDatabase.getUser(); // Ожидание результата
 
-      _username = user['name'];
-      _email = user['email'];
+      setState(() {
+        _username = user['name'];
+        _email = user['email'];
+      });
+
     } catch (e) {
       print("Ошибка получения пользователя: $e");
     }
@@ -68,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildInfoField("Логин", _username),
+              _buildInfoField("ФИО", _username),
               const SizedBox(height: 16),
               _buildInfoField("Почта", _email),
               const SizedBox(height: 16),
